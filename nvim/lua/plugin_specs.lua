@@ -1211,10 +1211,6 @@ local plugin_specs = {
   {
     "lewis6991/spaceless.nvim",
   },
-  -- CP2077 colorscheme
-  {
-    dir = "~/CP2077.nvim"
-  }
 }
 
 require("lazy").setup {

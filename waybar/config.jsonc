@@ -1,0 +1,32 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "modules-left": ["custom/power", "tray"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["temperature", "cpu", "pulseaudio/slider", "network", "clock"],
+
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "wlogout"
+  },
+
+  "clock": {
+    "timezone": "America/Indiana/Indianapolis",
+    "format-alt": "{:%Y-%m-%d}",
+  },
+
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+  },
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "sort-by-number": true
+  }
+
+}
+
+
