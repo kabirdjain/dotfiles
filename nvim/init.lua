@@ -17,7 +17,6 @@ require("mappings")
 -- all the plugins installed and their configurations
 vim.cmd("source " .. vim.fs.joinpath(config_dir, "viml_conf/plugins.vim"))
 
-vim.cmd.colorscheme("monokai-pro")
 
 --[[
 vim.cmd([[
@@ -37,3 +36,8 @@ vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
 
 vim.opt.mouse = 'a' --enable mouse
 
+if vim.loop.os_uname().sysname == "Linux" then
+  vim.cmd.colorscheme("techbase")
+elseif vim.loop.os_name().sysname == "Dawin" then
+  vim.cmd.colorscheme("monokai-pro")
+end

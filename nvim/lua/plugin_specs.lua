@@ -439,6 +439,13 @@ local plugin_specs = {
     end,
   },
   {
+    "mcauley-penney/techbase.nvim",
+    config = function(_, opts)
+        vim.cmd.colorscheme("techbase")
+    end,
+    priority = 1000
+  },
+  {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     cond = firenvim_not_active,
