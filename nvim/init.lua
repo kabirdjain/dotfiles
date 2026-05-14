@@ -38,6 +38,6 @@ vim.opt.mouse = 'a' --enable mouse
 
 if vim.loop.os_uname().sysname == "Linux" then
   vim.cmd.colorscheme("techbase")
-elseif vim.loop.os_name().sysname == "Dawin" then
+elseif vim.loop.os_uname().sysname == "Dawin" then
   vim.cmd.colorscheme("monokai-pro")
 end
