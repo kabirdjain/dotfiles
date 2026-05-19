@@ -2,24 +2,52 @@
   "layer": "top",
   "position": "top",
   "height": 30,
-  "modules-left": ["custom/power", "tray"],
-  "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["temperature", "cpu", "pulseaudio/slider", "network", "clock"],
+  "margin": "5 0 0",
+  "modules-left": ["group/left"],
+  "modules-center": ["tray"],
+  "modules-right": ["group/right", "bluetooth", "network", "clock"],
 
   "custom/power": {
-    "format": "⏻",
+    "format": "",
     "on-click": "wlogout"
+  },
+
+  "cpu": {
+    "format": "  {usage}%",
+    "interval": 1
+  },
+
+  "custom/gpu": {
+    "exec": "cat /sys/class/hwmon/hwmon3/device/gpu_busy_percent",
+    "format": "󰢮 {}%",
+    "tooltip-format": "GPU Usage: {}",
+    "return_type": "",
+    "interval": 1
   },
 
   "clock": {
     "timezone": "America/Indiana/Indianapolis",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "format": "{:%I:%M %p}",
     "format-alt": "{:%Y-%m-%d}",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "format": {
+        "months":   "<span color='#acb0d0'><b>{}</b></span>",
+        "weeks":    "<span color='#7aa2f7'><b>W{}</b></span>",
+        "weekdays": "<span color='#e0af68'><b>{}</b></span>",
+        "days":     "<span color='#acb0d0'><b>{}</b></span>",
+        "today":    "<span color='#41a6b5'><b><u>{}</u></b></span>"
+      }
+    },
   },
 
   "network": {
+    "interval": 1,
     "format-wifi": "{icon}",
     "format-linked": "󱘖",
-    "format-ethernet": "󱘖",
+    "format-ethernet": "󰈁",
     "format-disconnected": "󰤣",
     "format-disabled": "󰤮",
     "format-icons": [
@@ -39,17 +67,128 @@
     "on-scroll-down": "nmcli radio wifi off"
   },
 
+  "tray": {
+    "icon-size": 13,
+    "spacing": 12,
+    "cursor": true,
+  },
+
+  "group/groupaudio": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": true,
+    },
+    "modules": [
+      "custom/arrow-left",
+      "pulseaudio#microphone",
+      "pulseaudio/slider",
+    ]
+  },
+
+  "group/left": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/power",
+      "power-profiles-daemon",
+      "group/hardware",
+      "hyprland/workspaces"
+    ]
+  },
+
+  "group/right": {
+    "orientation": "horizontal",
+    "modules": [
+      "group/groupaudio",
+      "pulseaudio"
+    ]
+  },
+
+  "group/hardware": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false,
+    },
+    "modules": [
+      "custom/arrow-right",
+      "cpu",
+      "custom/gpu",
+      "temperature",
+      "memory",
+      "disk",
+    ]
+  },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "󰋋",
+      "headset": "󰋋",
+      "hands-free": "󰋋",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "tooltip-format": "Output: {volume}%"
+  },
+
+
   "pulseaudio/slider": {
     "min": 0,
     "max": 100,
     "orientation": "horizontal"
   },
 
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": ""
+  },
+
   "hyprland/workspaces": {
     "on-click": "activate",
-    "sort-by-number": true
-  }
+  },
 
+  "temperature": {
+    "format": "{icon} {temperatureC}°C",
+    "tooltip-format": "{temperatureC}°C\n{temperatureF}°F",
+    "interval": 10,
+    "warning-threshold": 65,
+    "critical-threshold": 80,
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
+  "custom/arrow-left":  {
+    "format": "",
+    "tooltip": false,
+    "cursor": true
+  },
+
+  "custom/arrow-right": {
+    "format": "",
+    "tooltip": false,
+    "cursor": true
+  },
 }
 
 
