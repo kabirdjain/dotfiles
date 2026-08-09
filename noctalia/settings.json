@@ -30,7 +30,7 @@
     "audio": {
         "mprisBlacklist": [
         ],
-        "preferredPlayer": "",
+        "preferredPlayer": "spotify",
         "spectrumFrameRate": 165,
         "spectrumMirrored": true,
         "visualizerType": "linear",
@@ -462,7 +462,7 @@
         },
         "language": "",
         "lockOnSuspend": true,
-        "lockScreenAnimations": false,
+        "lockScreenAnimations": true,
         "lockScreenBlur": 0,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
@@ -515,7 +515,7 @@
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "",
+        "name": "Naperville",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,

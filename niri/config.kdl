@@ -152,7 +152,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        // off
+         off
 
         // How many logical pixels the ring extends out from the windows.
         width 4
@@ -264,7 +264,8 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-sh-at-startup "swaybg -i ~/.dotfiles/hypr/wallpapers/clovis.jpeg"
+spawn-sh-at-startup "awww-daemon"
+spawn-sh-at-startup "awww img ~/.dotfiles/misc/clovis.jpeg"
 spawn-sh-at-startup "qs -c noctalia-shell"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -290,7 +291,7 @@ animations {
     // off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
+    slowdown 1.25
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -333,6 +334,14 @@ window-rule {
 /-window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+}
+
+blur {
+    // off          ← uncomment to disable all blur globally
+    passes 2        // more passes = larger blur, more GPU cost
+    offset 2.0      // pixel offset multiplier per pass; increase this FIRST before adding passes
+    noise 0.02      // grain overlay to reduce color banding
+    saturation 1  // bump color vividness through the blur
 }
 
 binds {
