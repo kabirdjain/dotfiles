@@ -265,7 +265,9 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-sh-at-startup "awww-daemon"
+spawn-sh-at-startup "awww-daemon -n overlay"
 spawn-sh-at-startup "awww img ~/.dotfiles/misc/clovis.jpeg"
+spawn-sh-at-startup "awww img -n overlay ~/.dotfiles/misc/clovis.jpeg"
 spawn-sh-at-startup "qs -c noctalia-shell"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -292,6 +294,15 @@ animations {
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     slowdown 1.25
+}
+
+layer-rule {
+  match namespace="^awww-daemonoverlay$"
+  place-within-backdrop true
+  opacity 0.2
+  background-effect {
+    blur true
+  }
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -338,7 +349,7 @@ window-rule {
 
 blur {
     // off          ← uncomment to disable all blur globally
-    passes 2        // more passes = larger blur, more GPU cost
+    passes 4        // more passes = larger blur, more GPU cost
     offset 2.0      // pixel offset multiplier per pass; increase this FIRST before adding passes
     noise 0.02      // grain overlay to reduce color banding
     saturation 1  // bump color vividness through the blur
