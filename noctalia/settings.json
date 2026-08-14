@@ -311,7 +311,7 @@
         "generationMethod": "tonal-spot",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "monitorForColors": "",
+        "monitorForColors": "DP-1",
         "predefinedScheme": "Naysayer",
         "schedulingMode": "off",
         "syncGsettings": true,
