@@ -268,7 +268,7 @@ spawn-sh-at-startup "awww-daemon"
 spawn-sh-at-startup "awww-daemon -n overlay"
 spawn-sh-at-startup "awww img ~/.dotfiles/misc/clovis.jpeg"
 spawn-sh-at-startup "awww img -n overlay ~/.dotfiles/misc/clovis.jpeg"
-spawn-sh-at-startup "qs -c noctalia-shell"
+spawn-sh-at-startup "noctalia"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
