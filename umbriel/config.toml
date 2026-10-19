@@ -24,10 +24,6 @@ files = []
 # Optional session examples. XWayland support is enabled by default.
 [general]
 autostart = [
-  "awww-daemon",
-  "awww-daemon -n overlay",
-  "awww img ~/.dotfiles/misc/clovis.jpeg",
-  "awww img -n overlay ~/.dotfiles/misc/clovis.jpeg",
   "noctalia",
 ]
 
@@ -69,7 +65,7 @@ mod_key = "Super"
 [output.DP-1]
 mode = "3840x2160@160"
 position = [0, 0]
-scale = 1.50
+scale = 1.5
 focus_at_startup = true
 hdr = "on"
 
